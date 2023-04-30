@@ -1,0 +1,15 @@
+{{ $deviceTypes := list "1: Personal" "2: Work" }}
+{{ $devicePrompt := list "Device options:" ($deviceTypes | join "\n") "What is your selection" | join "\n" }}
+{{ $deviceInput := promptIntOnce . "device" $devicePrompt }}
+{{ $deviceInputIndex := sub $deviceInput 1 }}
+
+{{ if or (lt $deviceInputIndex 0) (lt (len $deviceTypes) $deviceInput) }}
+    {{- writeToStdout "Invalid device" -}}
+    {{ exit 1 }}
+{{ end }}
+
+[data]
+    isPersonalDevice = {{ eq $deviceInput 1 }}
+    isWorkDevice = {{ eq $deviceInput 2 }}
+
+{{- writeToStdout (cat "Setup successful with option" $deviceInput) -}}

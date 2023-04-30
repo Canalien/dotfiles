@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# common.Brewfile hash: {{ include "homebrew/common.Brewfile" | sha256sum }}
+brew bundle --file=homebrew/common.Brewfile
+
+{{ if .isPersonalDevice }}
+    # personal.Brewfile hash: {{ include "homebrew/personal.Brewfile" | sha256sum }}
+    brew bundle --file=homebrew/personal.Brewfile
+{{ else if .isWorkDevice }}
+    # work.Brewfile hash: {{ include "homebrew/work.Brewfile" | sha256sum }}
+    brew bundle --file=homebrew/work.Brewfile
+{{ end }}
