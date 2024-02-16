@@ -10,6 +10,7 @@ tap "homebrew/services"
 cask "vivaldi"
 
 # Dev
+"mise"
 cask "fork"
 cask "sf-symbols"
 cask "swiftformat-for-xcode"
@@ -25,9 +26,12 @@ cask "1password"
 cask "1password-cli"
 
 # Utility
+#cask "hiddenbar"
 cask "aldente"
 cask "swiftbar"
+#cask "https://raw.githubusercontent.com/Mortennn/FiScript/master/fiscript.rb"
+cask "openinterminal"
 
 # Font
-cask "font-fira-code"
-cask "font-fira-code-nerd-font"
+#cask "font-fira-code"
+#cask "font-fira-code-nerd-font"
